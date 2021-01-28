@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController,CLLocationManagerDelegate,UIGestureRecognizerDelegate {
+class ViewController: UIViewController,CLLocationManagerDelegate,UIGestureRecognizerDelegate,SearchLocationDelegate {
     
     //住所の中に入れる変数
     var addressString = ""
@@ -58,6 +58,15 @@ class ViewController: UIViewController,CLLocationManagerDelegate,UIGestureRecogn
         let geocoder = CLGeocoder()
         let location = CLLocation(latitude: lat, longitude: log)
         
+    /* オプショナルバインディング
+         if 変数 != nil{
+         
+         }
+         if let 変数 = 変数１{
+         print(変数)
+         }
+         */
+        
         //クロージャー
         geocoder.reverseGeocodeLocation(location) {
              (placeMark,error) in
@@ -93,11 +102,42 @@ class ViewController: UIViewController,CLLocationManagerDelegate,UIGestureRecogn
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "next"{
-            let nextVC = segue.description as! NextViewController
-            //
+            
+            let nextVC = segue.destination as! NextViewController
+            nextVC.delegate = self
         }
     }
     
+    //任されたデリゲートメソッド
+    func searchLocation(idoValue: String, keidoValue: String) {
+        
+        if idoValue.isEmpty != true && keidoValue.isEmpty != true{
+            
+            let idoString = idoValue
+            let keidoString = keidoValue
+            
+            //緯度、経度からコーディネート
+            let coordinate = CLLocationCoordinate2DMake(Double(idoString)!, Double(keidoString)!)
+            //表示する範囲を表示する
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            //領域を指定
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            
+            //領域をmapViewに設定する
+            mapView.setRegion(region, animated: true)
+            
+            //緯度経度から住所へ変換
+            convert(lat: Double(idoString)!, log: Double(keidoString)!)
+            
+            //ラベルに表示
+            addressLabel.text = addressString
+            
+        }else{
+            addressLabel.text = "表示できません"
+            
+        }
+        
+    }
     
 }
 

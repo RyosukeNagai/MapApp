@@ -49,7 +49,7 @@
                         <outlet property="longPress" destination="O3G-k1-2q3" id="txQ-Ka-673"/>
                         <outlet property="mapView" destination="eG5-6n-QyG" id="GQE-3K-6Ni"/>
                         <outlet property="settingButton" destination="noN-ff-h1l" id="QMV-x9-Gb8"/>
-                        <segue destination="fdC-q9-gYC" kind="presentation" modalPresentationStyle="fullScreen" id="xAH-On-YOY"/>
+                        <segue destination="fdC-q9-gYC" kind="presentation" identifier="next" modalPresentationStyle="fullScreen" id="xAH-On-YOY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
