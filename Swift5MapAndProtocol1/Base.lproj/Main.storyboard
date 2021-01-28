@@ -38,6 +38,9 @@
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="3BE-ey-CzR" id="pM1-oM-eV4"/>
+                        <outlet property="mapView" destination="eG5-6n-QyG" id="GQE-3K-6Ni"/>
+                        <outlet property="settingButton" destination="noN-ff-h1l" id="QMV-x9-Gb8"/>
                         <segue destination="fdC-q9-gYC" kind="presentation" modalPresentationStyle="fullScreen" id="xAH-On-YOY"/>
                     </connections>
                 </viewController>
