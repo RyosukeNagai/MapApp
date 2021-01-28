@@ -99,6 +99,9 @@
                                 <state key="normal" title="OK">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="okAction:" destination="fdC-q9-gYC" eventType="touchUpInside" id="a4P-3b-puA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YUB-gX-qzB"/>

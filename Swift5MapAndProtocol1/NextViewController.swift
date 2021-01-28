@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SearchLocationDelegate {
+    
+    func searchLocation(idoValue:String,keidoValue:String)
+}
 
 class NextViewController: UIViewController {
     
@@ -14,11 +18,35 @@ class NextViewController: UIViewController {
     
     @IBOutlet weak var keidoTextField: UITextField!
     
+    var delegate:SearchLocationDelegate?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func okAction(_ sender: Any) {
+        
+        //入力された値を取得
+        
+        let idovalue = idoTextField.text!
+        let keidoValue = keidoTextField.text!
+        
+        //デリゲートメソッドの引数を入れる
+        
+        delegate?.searchLocation(idoValue: idovalue, keidoValue: keidoValue)
+        
+        //両方のTFが空でなければ戻る
+        
+        if idoTextField.text != nil && keidoTextField.text != nil{
+            dismiss(animated: true, completion: nil)
+        } 
+        
+    }
+    
+    
     
 
     /*
