@@ -19,6 +19,10 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eG5-6n-QyG">
                                 <rect key="frame" x="0.0" y="84" width="414" height="482"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="O3G-k1-2q3" appends="YES" id="2jd-5a-ayN"/>
+                                </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="住所" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BE-ey-CzR">
                                 <rect key="frame" x="20" y="594" width="374" height="92"/>
@@ -32,6 +36,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <state key="normal" title="設定"/>
+                                <connections>
+                                    <action selector="goToSearchVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mCQ-Hg-Fgb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -39,12 +46,18 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="3BE-ey-CzR" id="pM1-oM-eV4"/>
+                        <outlet property="longPress" destination="O3G-k1-2q3" id="txQ-Ka-673"/>
                         <outlet property="mapView" destination="eG5-6n-QyG" id="GQE-3K-6Ni"/>
                         <outlet property="settingButton" destination="noN-ff-h1l" id="QMV-x9-Gb8"/>
                         <segue destination="fdC-q9-gYC" kind="presentation" modalPresentationStyle="fullScreen" id="xAH-On-YOY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="O3G-k1-2q3">
+                    <connections>
+                        <action selector="longPressTap:" destination="BYZ-38-t0r" id="brE-cr-fCO"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="218.84057971014494" y="-29.464285714285712"/>
         </scene>
@@ -91,6 +104,10 @@
                         <viewLayoutGuide key="safeArea" id="YUB-gX-qzB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="idoTextField" destination="MgD-w6-WDe" id="qsy-a3-cK1"/>
+                        <outlet property="keidoTextField" destination="ZJV-Ff-Ag5" id="4Do-7n-p5W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTa-O5-vaX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

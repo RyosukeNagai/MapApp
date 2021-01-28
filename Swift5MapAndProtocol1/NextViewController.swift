@@ -9,7 +9,11 @@ import UIKit
 
 
 class NextViewController: UIViewController {
-
+    
+    @IBOutlet weak var idoTextField: UITextField!
+    
+    @IBOutlet weak var keidoTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
